@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farmers Decision Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Farmers Decision Dashboard</h1>
+    
+        <div class="weather-section">
+            <h2>Enter Your City</h2>
+            <input type="text" id="cityInput" placeholder="e.g., Kigali">
+            <button id="getDecisionBtn">Get Recommendations</button>
+        </div>
+    
+        <div id="weatherOutput" class="card"></div>
+    
+        <!-- Decision cards -->
+        <div id="decisionOutput" class="cards-container"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
