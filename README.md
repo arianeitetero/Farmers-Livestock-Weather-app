@@ -135,8 +135,3 @@ sudo systemctl restart nginx
 ```
 
 ---
-
-If you want, I can **also generate the Dockerfile + docker-compose.yml** that will perfectly match this setup and allow you to **run Web01 and Web02 containers with one command**, making load balancer deployment super easy.  
-
-Do you want me to do that next?
-```
