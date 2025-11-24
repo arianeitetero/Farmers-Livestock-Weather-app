@@ -1,15 +1,16 @@
-# Farmers Livestock & Weather App
+#  Farmers Livestock & Weather App
 
-A beginner-friendly web application designed to help farmers decide the best time to plant crops based on current weather conditions. The app fetches live weather data from **OpenWeatherMap API** and provides simple, actionable advice.
+A beginner-friendly web application that helps farmers decide the best time to plant crops based on **current weather conditions**.  
+It fetches live weather data from **OpenWeatherMap API** and provides actionable advice in a simple, card-based format.
 
 ---
 
 ## Features
-- Displays current weather for any location.
-- Provides planting advice based on weather conditions.
-- Beginner-friendly UI with card-based visualization.
-- Docker-ready for easy deployment.
-- Load-balanced across two servers using NGINX for reliability.
+- Display current weather for any location
+- Provide planting advice based on weather conditions
+- Beginner-friendly UI with card visualization
+- Docker-ready for easy deployment
+- Load-balanced across two servers using NGINX for reliability
 
 ---
 
@@ -17,13 +18,10 @@ A beginner-friendly web application designed to help farmers decide the best tim
 - **Web01:** [http://34.238.85.241](http://34.238.85.241)  
 - **Web02:** [http://13.222.249.244](http://13.222.249.244)  
 - **Load Balancer (Lb01):** [http://3.85.13.111](http://3.85.13.111)  
-> Users should access the app via the load balancer to ensure traffic is distributed evenly between the servers.
 
+> Users should access the app via the load balancer to ensure traffic is distributed evenly.
 
-- **Live Demo:** [https://youtu.be/nP0vyBpnstA](https://youtu.be/nP0vyBpnstA)  
-
-
-> Users should access the app via the load balancer to ensure traffic is distributed evenly between the servers.
+- **Live Demo Video:** [https://youtu.be/nP0vyBpnstA](https://youtu.be/nP0vyBpnstA) (2 minutes max)
 
 ---
 
@@ -31,35 +29,37 @@ A beginner-friendly web application designed to help farmers decide the best tim
 1. Clone the repository:
 
 ```bash
-git clone <https://github.com/arianeitetero/Farmers-Livestock-Weather-app.git>
+git clone https://github.com/arianeitetero/Farmers-Livestock-Weather-app.git
 cd Farmers-Livestock-Weather-app
 ````
 
 2. Add your OpenWeatherMap API key in `script.js`:
 
 ```javascript
-const apiKey = "YOUR_API_KEY_HERE";
+const apiKey = "YOUR_API_KEY_HERE"; // Replace with your key
 ```
 
 3. Open `index.html` in your browser to run locally.
+
+> **Note:** Do not commit your API key. Use `.gitignore` to exclude sensitive files like `.env`.
 
 ---
 
 ## Docker Deployment
 
-1. Build the Docker image on each web server (Web01 & Web02):
+1. Build Docker image on **each web server**:
 
 ```bash
 sudo docker build -t farmersapp .
 ```
 
-2. Run the Docker container:
+2. Run Docker container:
 
 ```bash
 sudo docker run -d -p 80:80 farmersapp
 ```
 
-3. Verify the container is running:
+3. Check running containers:
 
 ```bash
 sudo docker ps
@@ -76,7 +76,7 @@ sudo apt update
 sudo apt install nginx -y
 ```
 
-2. Configure NGINX by editing `/etc/nginx/sites-available/default`:
+2. Configure `/etc/nginx/sites-available/default`:
 
 ```nginx
 upstream farmers_app {
@@ -97,15 +97,10 @@ server {
 }
 ```
 
-3. Test the NGINX configuration:
+3. Test and restart NGINX:
 
 ```bash
 sudo nginx -t
-```
-
-4. Restart NGINX to apply changes:
-
-```bash
 sudo systemctl restart nginx
 ```
 
@@ -113,30 +108,16 @@ sudo systemctl restart nginx
 
 ---
 
-## API
+## API Credit
 
 * **OpenWeatherMap API:** [https://openweathermap.org/api](https://openweathermap.org/api)
   Proper credit to OpenWeatherMap for providing weather data.
 
 ---
 
-## Notes
+## Notes & Challenges
 
 * Cards display weather and planting advice clearly for farmers.
-* The load balancer ensures even traffic distribution for reliability.
-* Docker makes it simple to deploy the app on multiple servers.
-* Beginner-friendly code with comments for easy understanding.
-
----
-
-## Optional Enhancements for Extra Points
-
-* User authentication for personalized settings.
-* Caching API responses to improve performance.
-* Advanced data visualization for better user experience.
-* CI/CD pipeline for automated deployment.
-* Enhanced security measures like input validation and XSS prevention.
-
-```
-
----
+* Docker allows easy deployment on multiple servers.
+* NGINX load balancer ensures even traffic distribution and reliability.
+* Charts were replaced with cards for simpler visualization.
