@@ -17,6 +17,11 @@ A beginner-friendly web application designed to help farmers decide the best tim
 - **Web01:** [http://34.238.85.241](http://34.238.85.241)  
 - **Web02:** [http://13.222.249.244](http://13.222.249.244)  
 - **Load Balancer (Lb01):** [http://3.85.13.111](http://3.85.13.111)  
+> Users should access the app via the load balancer to ensure traffic is distributed evenly between the servers.
+
+
+- **Live Demo:** [https://youtu.be/nP0vyBpnstA](https://youtu.be/nP0vyBpnstA)  
+
 
 > Users should access the app via the load balancer to ensure traffic is distributed evenly between the servers.
 
