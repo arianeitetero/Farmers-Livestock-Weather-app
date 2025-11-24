@@ -1,11 +1,17 @@
-# Use a lightweight web server image
-FROM nginx:alpine
+# Use official Python image
+FROM python:3.10-slim
 
-# Copy your HTML, CSS, and JS files into NGINX default folder
-COPY . /usr/share/nginx/html
+WORKDIR /app
 
-# Expose port 80 for HTTP
-EXPOSE 80
+# Install dependencies
+RUN apt-get update && apt-get install -y build-essential && rm -rf /var/lib/apt/lists/*
 
-# Start NGINX
-CMD ["nginx", "-g", "daemon off;"]
+COPY app/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app/ .
+
+EXPOSE 5000
+
+# Start Flask app using Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]

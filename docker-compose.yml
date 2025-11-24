@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  web01:
+    build: .
+    container_name: farmers_web01
+    ports:
+      - "5001:5000"
+    restart: always
+
+  web02:
+    build: .
+    container_name: farmers_web02
+    ports:
+      - "5002:5000"
+    restart: always
+
+  lb01:
+    image: nginx:latest
+    container_name: farmers_lb
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web01
+      - web02
+    restart: always
